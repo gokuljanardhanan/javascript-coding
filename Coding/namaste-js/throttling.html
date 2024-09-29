@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Capture and Bubbling</title>
+  </head>
+  <body>
+    <style></style>
+    <form id="customerForm">
+      <input type="text" id="name" />
+    </form>
+    <script>
+      const getData = () => {
+        console.log("called getdata");
+      };
+
+      const throttlingGetData = (fn, delay) => {
+        let flag = true;
+        return function (...args) {
+          if (flag) {
+            fn.apply(this, args);
+            flag = false;
+            setTimeout(() => {
+              flag = true;
+            }, delay);
+          }
+        };
+      };
+
+      const betterFn = throttlingGetData(getData, 300);
+
+      document
+        .getElementById("name")
+        .addEventListener("keyup", betterFn, false);
+    </script>
+  </body>
+</html>

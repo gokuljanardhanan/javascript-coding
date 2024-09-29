@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Capture and Bubbling</title>
+  </head>
+  <body>
+    <style>
+      #one {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      #two {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+      }
+      #three {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+    <div id="one">
+      <div id="two">
+        <div id="three"></div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("one").addEventListener(
+        "click",
+        function () {
+          console.log("one");
+        },
+        false
+      );
+      document.getElementById("two").addEventListener(
+        "click",
+        function () {
+          console.log("two");
+        },
+        false
+      );
+      document.getElementById("three").addEventListener(
+        "click",
+        function (e) {
+          console.log("three");
+          e.stopPropagation();
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

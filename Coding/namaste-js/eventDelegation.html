@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Capture and Bubbling</title>
+  </head>
+  <body>
+    <style></style>
+    <ul id="category">
+      <li id="one">Laptop</li>
+      <li id="two">Phone</li>
+      <li id="three">Shoe</li>
+    </ul>
+    <form id="customerForm">
+      <input type="text" id="name" data-uppercase/>
+      <input type="text" id="pan" />
+    </ul>
+    <script>
+      document.getElementById("category").addEventListener(
+        "click",
+        function (e) {
+          console.log("clicked category");
+          window.location.href = "https://www.google.com" + "/" + e.target.id;
+        },
+        false
+      );
+      document.getElementById("customerForm").addEventListener(
+        "keyup",
+        function (e) {
+          if(e.target.dataset.uppercase !== undefined) {
+            e.target.value = e.target.value.toUpperCase();
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
