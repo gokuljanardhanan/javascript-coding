@@ -20,3 +20,9 @@ function isAnagram(a, b) {
 }
 console.log(isAnagram("b", "d")); // YES
 // console.log(isAnagram("allergy", "allergic")); // NO
+
+var isAnagramNew = function (s, t) {
+  s = s.split("").sort().join("");
+  t = t.split("").sort().join("");
+  return s === t;
+};
