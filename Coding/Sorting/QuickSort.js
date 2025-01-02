@@ -1,3 +1,4 @@
+// Time complexity : O(nlogn)/O(n^2)worst case  The time complexity is O(nlogn) because the algorithm is a simple sorting algorithm.
 function quickSort(arr) {
   if (arr.length <= 1) return arr;
 
@@ -15,6 +16,19 @@ function quickSort(arr) {
 
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
+
+/*
+Explanation:
+Quick sort we will assume last element in the array is pivot, and based on pivot we will iterate from 0 to n-1,
+Left pointer will keep at starting.
+The elements less than pivot, will swap with left pointer. after each swap left pointer increments by 1.
+Finally we will get elements less than pivot on the left side, and elements greater than pivot on the right side.
+Now the pivot element will swap with last value of left pointer.
+Now the left side of pivot will be values less than pivot and right side of pivot will be values greater than pivot.
+Now we will recursively call quick sort on left side and right side of pivot.
+
+STABLE  : No
+*/
 
 /*
 Description:

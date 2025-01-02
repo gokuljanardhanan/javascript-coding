@@ -1,0 +1,35 @@
+//Time Complexity: O(n)
+//Space Complexity: O(n)
+var getConcatenation = function (nums) {
+  const len = nums.length;
+  for (let i = 0; i < len; i++) {
+    nums.push(nums[i]);
+  }
+  return nums;
+};
+
+//Time Complexity: O(n)
+//Space Complexity: O(n)
+var getConcatenationAlertnative = function (nums) {
+  return nums.concat(nums);
+};
+
+/*
+Explanation:
+- The concat method creates a new array by merging the existing array with itself.
+- The time complexity is O(n) because we are iterating through the array once to create the new array.
+- The space complexity is O(n) because we are creating a new array of size 2n.
+*/
+
+/*
+Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+Specifically, ans is the concatenation of two nums arrays.
+Return the array ans.
+
+Example 1:
+Input: nums = [1,2,1]
+Output: [1,2,1,1,2,1]
+Explanation: The array ans is formed as follows:
+- ans = [nums[0],nums[1],nums[2],nums[0],nums[1],nums[2]]
+- ans = [1,2,1,1,2,1]
+*/
